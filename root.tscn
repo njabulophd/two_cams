@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bvyp6sw23sq36"]
+
+[node name="root" type="Node3D"]
+
+[node name="x_rotation" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="x_rotation"]
+transform = Transform3D(1, 0, 0, 0, 0.973279, 0.229625, 0, -0.229625, 0.973279, 0, 1.16959, 2.25281)
+
+[node name="Camera3D" type="Camera3D" parent="x_rotation/SpringArm3D"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://wqo0ylnc74qu"]
+
+[ext_resource type="Texture2D" uid="uid://dxpxp67loup1r" path="res://texture_08.png" id="1_hcl2a"]
+[ext_resource type="Texture2D" uid="uid://bn4r6cqc7mepg" path="res://texture_12.png" id="2_q6pkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3w7w"]
+albedo_texture = ExtResource("1_hcl2a")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v61u0"]
+albedo_texture = ExtResource("2_q6pkn")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vtu3"]
+metallic = 1.0
+roughness = 0.0
+
+[node name="floor" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="floor_mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 0.02, 0, 0, 0, 100, 0, 0, 0)
+material = SubResource("StandardMaterial3D_l3w7w")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 5.82764, 1.11327, 0)
+size = Vector3(2.16553, 0.338379, 1)
+material = SubResource("StandardMaterial3D_v61u0")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 22)
+radius = 3.23382
+material = SubResource("StandardMaterial3D_8vtu3")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 3, 0, 0, 0, 9, -10.2959, 0.298735, 5.70451)
+polygon = PackedVector2Array(0, 0, -3.17811, -0.220387, 0.980823, 0.843434, 1, 0)

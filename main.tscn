@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://i7a04bhpts5x"]
+
+[ext_resource type="PackedScene" uid="uid://wqo0ylnc74qu" path="res://floor.tscn" id="1_mk52c"]
+[ext_resource type="PackedScene" uid="uid://8b8klexj6ilt" path="res://p.tscn" id="2_3m6te"]
+[ext_resource type="PackedScene" uid="uid://bvyp6sw23sq36" path="res://root.tscn" id="3_a8jk0"]
+[ext_resource type="Script" path="res://root.gd" id="4_u54sp"]
+
+[node name="main" type="Node"]
+
+[node name="floor" parent="." instance=ExtResource("1_mk52c")]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_3m6te")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.06972, 0)
+
+[node name="root" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_a8jk0")]
+script = ExtResource("4_u54sp")
+player = NodePath("../CharacterBody3D")
+mouse_sensitivity = 0.053
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 2, 5, 0)
+shadow_enabled = true
